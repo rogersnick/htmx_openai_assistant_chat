@@ -1,45 +1,76 @@
 <!-- markdownlint-disable MD001 MD033 -->
-# HTMX OpenAI Chat With Assistant
+# Grug Guide: Use HTMX OpenAI Assistant Chat  
 
-This project is a simple Chat Interface for use with agents from OpenAI. It is made entirely with htmx, tailwind, express and and express-handlebars. Threads are persisted in memory based on incoming ip address. The assistant has basic tool use set up. This is experimental and not intended for production use.
+Grug build simple chat tool. Tool good for talk to AI assistant without extra fluff. Grug explain how to make it work.
 
 ![Alt Text](readme_images/demo.gif)
 
-# Requirements
+## What Grug Tool Do  
 
-- Node
-- OpenAI API Key
+- Grug tool use HTMX for talk between browser and server.  
+- Memory stay in Grug tool brain (server) by IP address. This keep chat bubbles in place.  
+- No big state machine. Just hypermedia—simple and clean, like good rock.  
+- Built with Express and Handlebars. Grug like these—they work.  
 
-# Setup
+## How Grug Run Tool  
 
-Head over to the [Open AI Playground](https://platform.openai.com/playground/assistants) and create an assistant. Make a note of it's ID. You should also copy down you API Key.
+1. Grug need **OPENAI_API_KEY** and **ASSISTANT_ID**. No key, no work.
 
-To install required packages (express, handlebars, and openai mostly), run
+> [!TIP]
+> If Grug not Find Key, check  [Open AI Cave](https://platform.openai.com/playground/assistants)
 
-```bash
-npm i
-```
+2. Grug clone tool code to cave:  
 
-Duplicate `.env.sample` and name it `.env.development`. Fill in the values for `OPENAI_API_KEY` and `ASSISTANT_ID`. You can now run the project locally with nodemon using:
+   ```bash  
+   git clone https://github.com/rogersnick/htmx_openai_assistant_chat.git  
+   ```
 
-```bash
-npm run dev
-```
+3. Grug go to code folder:  
 
-You should see this in the terminal.
+   ```bash  
+   cd htmx_openai_assistant_chat  
+   ```
 
-```bash
-App is listening at http://localhost:3000
-```
+4. Grug install tool dependencies:  
 
-Congratulations! Open [localhost:3000](http://localhost:3000) in your favourite browser, and begin interacting with your Assistant. 
+   ```bash  
+   npm install  
+   ```
+
+5. Grug set API key and assistant ID in `.env.developer` file:  
+
+   ```env  
+   OPENAI_API_KEY=your-key-here  
+   ASSISTANT_ID=your-assistant-id-here  
+   ```  
+
+6. Grug start server with dev mode for reloads:  
+
+   ```bash  
+   npm run dev  
+   ```
+
+7. Grug open browser and go to `http://localhost:3000`. Grug see chat, Grug happy.  
+
+## How Tool Work Inside  
+
+- Grug keep things simple. Form send messages with HTMX.  
+- Server use Express for routes.  
+- Handlebars make chat bubbles look nice.  
+- No extra. Just rocks (HTML), fire (JS), and wheel (CSS).  
 
 <img src="readme_images/app-sketch.png" alt="drawing" style="width:80%;"/>
 
 
-## Tool Usage
+Grug think tool good for demos or testing. If tool break, Grug say sorry but you fix.  
 
-Tool usage is handled in the class `AIProvider` by the method `getToolOutputs`. There is an example called implementation called `get_current_date`. To give your assistant access to this tool, you can add the following function definition in the OpenAI console.
+Enjoy tool. Grug hope it help!
+
+## How Tool Handle Function Calling
+
+Tool work inside class called `AIProvider`. Method called `getToolOutputs` make magic happen. Grug give example tool called get_current_date.
+
+If Grug want assistant use this tool, Grug add special thing in OpenAI console. Here how:
 
 ```json
 {
@@ -57,11 +88,14 @@ Tool usage is handled in the class `AIProvider` by the method `getToolOutputs`. 
   }
 }
 ```
+Grug’s secret: this tells assistant, "Hey, go get date and show it in simple format." Simple. Grug likes it.
 
-# Want to Help?
+# Want Help?
 
-I will gladly read any pull request, and in particular these tasks look interesting to me:
+Grug love pull requests. Grug read them all. Here things Grug want help with:
 
-- add interface to input custom ASSISTANT_ID and OPENAI_API_KEY (right now you set an env variable)
-- add streaming responses and handle that
-- add media handling (eg - images)
+- Make easy way to input custom ASSISTANT_ID and OPENAI_API_KEY (no more env variables, Grug lazy).
+- Add streaming responses, make it flow smooth.
+- Handle media too—images, Grug like images.
+
+Send Grug pull request, Grug look at it!
